@@ -4,14 +4,40 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
+    TextView countText;
+    int number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        number = 0;
+        countText = (TextView)findViewById(R.id.text);
+    }
+
+    private void setText(){
+        countText.setText(String.valueOf(number));
+    }
+
+    public void plus(View v){
+        number++;
+        setText();
+    }
+
+    public void minus(View v){
+        number--;
+        setText();
+    }
+
+    public void clear(View v){
+        number = 0;
+        setText();
     }
 
 
